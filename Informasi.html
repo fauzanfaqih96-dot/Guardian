@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GUARDIAN CITIMALL</title>
-     <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
+    <title>GUARDIAN CITIMALL - Information</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
+    
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
@@ -23,138 +24,207 @@
 
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
-        background-color: #f9f9f9;
-        color: #333;
+        background-color: #f8f9fa;
+        color: #333333;
+        margin: 0;
+        padding: 0;
       }
 
+      /* Background utama dengan sentuhan gradient oranye-putih */
+      .main {
+        min-height: 100vh;
+        padding: 20px 40px 40px;
+        background: linear-gradient(135deg, #fff5f0 0%, #ffefe6 100%);
+      }
+
+      /* Topbar Oranye & Putih Modern */
+      .topbar {
+        width: 100%;
+        height: 65px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        background: #ffffff;
+        border-radius: 16px;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 30px rgba(255, 102, 0, 0.08);
+        border: 1px solid rgba(255, 102, 0, 0.15);
+      }
+
+      .topbar .toggle {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        color: #ff6600;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .topbar .toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .topbar .brand-title {
+        color: #ff6600;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+      }
+
+      .topbar .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .topbar .icon-btn {
+        color: #ff6600;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #fff5f0;
+        border: 1px solid rgba(255, 102, 0, 0.2);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .topbar .icon-btn:hover {
+        background: #ff6600;
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      /* Premium Card Section - Nuansa Oranye Putih */
       .info-section {
         position: relative;
-        padding: 50px;
-        border-radius: 18px;
-        background: linear-gradient(145deg, #0f0c29, #1a1a40, #2c1a47);
-        color: #ffffff;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        padding: 45px;
+        border-radius: 24px;
+        background: #ffffff;
+        border: 1px solid rgba(255, 102, 0, 0.15);
+        color: #333333;
+        box-shadow: 0 20px 40px rgba(255, 102, 0, 0.08);
         overflow: hidden;
       }
 
-      .main {
-        min-height: 100vh;
-        padding: 60px;
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.8), rgba(226, 200, 200, 0.8)),
-          url("assets/img/misteri.jpeg") no-repeat center center fixed;
-        background-size: cover;
-        background-position: center;
-      }
-      /* Glow effect */
-
+      /* Efek Lingkaran Glow Oranye Halus */
       .info-section::before {
         content: "";
         position: absolute;
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         background: radial-gradient(
           circle,
-          rgba(255, 215, 0, 0.2),
+          rgba(255, 102, 0, 0.12),
           transparent 70%
         );
-        top: -100px;
-        right: -100px;
-        filter: blur(80px);
+        top: -60px;
+        right: -60px;
+        filter: blur(50px);
         z-index: 0;
+        pointer-events: none;
       }
-      /* Supaya text tetap di atas glow */
 
       .info-section * {
         position: relative;
         z-index: 1;
       }
-      /* Heading Premium Style */
-
-      .info-section h1,
-      .info-section h2,
-      .info-section h3 {
-        color: #ffd700;
-        letter-spacing: 1px;
-      }
-      /* List styling */
-
-      .info-section ul li {
-        margin-bottom: 8px;
-        font-weight: 300;
-      }
-
-      .info-section * {
-        position: relative;
-      }
-
-      .container {
-        margin-top: 50px;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-      }
-
-      p {
-        font-size: 1rem;
-        margin-bottom: 15px;
-      }
 
       .info-section h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #ff6600;
+        letter-spacing: 0.8px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
       }
 
-      .info-section p {
-        font-size: 1rem;
-        margin-bottom: 10px;
+      .info-section p.lead-text {
+        font-size: 1.05rem;
+        color: #555555;
+        margin-bottom: 30px;
       }
-      /* --- Keep your existing desktop styles above --- */
-      /* Mobile Responsive Adjustments */
 
+      /* Card Kontak Interaktif */
+      .contact-card {
+        display: flex;
+        align-items: center;
+        background: #fffafa;
+        border: 1.5px solid #ffe5d9;
+        border-radius: 16px;
+        padding: 18px 24px;
+        margin-bottom: 18px;
+        text-decoration: none !important;
+        color: #333333;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover {
+        background: #ff6600;
+        border-color: #ff6600;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 102, 0, 0.25);
+      }
+
+      .contact-card:hover .contact-icon,
+      .contact-card:hover .contact-info .label,
+      .contact-card:hover .contact-info .value {
+        color: #ffffff;
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        margin-right: 20px;
+        color: #ff6600;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info .label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #888888;
+        display: block;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info .value {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #222222;
+        transition: color 0.3s ease;
+      }
+
+      /* Responsif Mobile */
       @media (max-width: 768px) {
-        /* Adjust the outer container padding */
-        .main {
-          padding: 20px;
-          /* Reduce heavy padding on mobile */
-        }
-        /* Adjust the glassmorphism section */
-        .info-section {
-          padding: 30px 20px;
-          /* More room for content */
-          border-radius: 12px;
-        }
-        /* Scale down typography */
-        h1 {
-          font-size: 1.8rem;
-        }
-        .info-section h3 {
-          font-size: 1.3rem;
-        }
-        p,
-        .info-section p {
-          font-size: 0.95rem;
-        }
-        /* Adjust the glow effect for smaller screens */
-        .info-section::before {
-          width: 250px;
-          height: 250px;
-          top: -50px;
-          right: -50px;
-        }
-      }
-      /* For very small devices (phones in portrait) */
-
-      @media (max-width: 480px) {
         .main {
           padding: 15px;
         }
-        h1 {
-          font-size: 1.5rem;
+        .topbar {
+          height: 55px;
+          padding: 0 15px;
+        }
+        .topbar .brand-title {
+          font-size: 0.95rem;
+        }
+        .info-section {
+          padding: 30px 20px;
+        }
+        .info-section h3 {
+          font-size: 1.4rem;
         }
       }
     </style>
@@ -162,7 +232,7 @@
 
   <body>
     <!-- =============== Navigation ================ -->
-    <div class="">
+    <div>
       <div class="navigation">
         <ul>
           <li>
@@ -197,7 +267,6 @@
               <span class="title">TRENDING PRODUCTS</span>
             </a>
           </li>
-
           <li>
             <a href="Member.html">
               <span class="icon">
@@ -211,198 +280,74 @@
 
       <!-- ========================= Main ==================== -->
       <div class="main">
+        
+        <!-- Topbar Oranye & Putih -->
         <div class="topbar">
           <div class="toggle">
             <ion-icon name="menu-outline"></ion-icon>
           </div>
+          <div class="brand-title">Guardian Citimall</div>
+          <div class="topbar-actions">
+            <a href="index.html" class="icon-btn" title="Home">
+              <ion-icon name="home-outline"></ion-icon>
+            </a>
+            <a href="Member.html" class="icon-btn" title="Member">
+              <ion-icon name="person-outline"></ion-icon>
+            </a>
+          </div>
         </div>
 
-        <div class="m-5">
-          <header class="">
-            <div class="container px-5">
-              <div class="row justify-content-left">
-                <div class="col-lg-6"></div>
+        <div class="container mt-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+              
+              <!-- Info Card - Oranye Putih -->
+              <div class="info-section">
+                <h3>More Information</h3>
+                <p class="lead-text">
+                  Jika Anda memiliki pertanyaan, saran, atau memerlukan bantuan lebih lanjut, silakan hubungi kami melalui saluran resmi berikut:
+                </p>
 
-                <div class="info-section">
-                  <h1>MYSTERY SCENT</h1>
-                  <h2>A Fragrance of Hidden Desire &amp; Silent Power</h2>
-                  <p>
-                    Mystery Scent adalah parfum yang dirancang untuk menciptakan
-                    kesan mendalam, penuh rahasia, dan sulit ditebak. Aroma ini
-                    tidak hadir untuk sekadar harum, tetapi untuk membangun
-                    identitas—tentang seseorang yang tenang, percaya diri, dan
-                    memiliki daya tarik alami yang muncul tanpa usaha
-                    berlebihan. Parfum ini cocok bagi pribadi yang menyukai
-                    keanggunan yang tidak mencolok, namun selalu meninggalkan
-                    kesan kuat dan berkelas. Mystery Scent bekerja secara
-                    perlahan, berkembang di kulit, dan semakin indah seiring
-                    waktu.
-                  </p>
-
-                  <div class="info-section mt-4">
-                    <h3>AROMA CHARACTER</h3>
-                    <ul>
-                      <li>Warm</li>
-                      <li>Elegant</li>
-                      <li>Sensual</li>
-                      <li>Mewah dan tidak Pasaran</li>
-                    </ul>
-                  </div>
-
-                  <div class="info-section mt-4">
-                    <h1>Jenis Aroma Parfum</h1>
-                    <h2>a. Fresh</h2>
-                    <p>
-                      Keluarga aroma yang paling populer untuk penggunaan
-                      sehari-hari, terutama di iklim tropis seperti Indonesia.
-                    </p>
-                    <h3>Contoh aroma fresh :</h3>
-                    <ul>
-                      <li>Citrus</li>
-                      <li>Aquatic/Marine</li>
-                      <li>Green</li>
-                    </ul>
-                    <p>
-                      Aroma buah jeruk, lemon, bergamot. Kesannya enerjik dan
-                      bersih. (Contoh: Mykonos Slow Living).
-                    </p>
-                    <p>
-                      Aroma yang mengingatkan pada udara laut atau air jernih.
-                      (Contoh: Braven Cool Water).
-                    </p>
-                    <p>
-                      Aroma daun yang diremas, rumput potong, atau teh. Kesannya
-                      alami dan menenangkan.
-                    </p>
-
-                    <h2>b. Floral</h2>
-                    <h3>
-                      Arga aroma terbesar dan paling banyak disukai wanita,
-                      meski sekarang banyak digunakan untuk parfum unisex.
-                    </h3>
-                    <h3>Contoh aroma floral :</h3>
-                    <ul>
-                      <li>White Floral</li>
-                      <li>Rose</li>
-                      <li>Powdery Floral</li>
-                    </ul>
-                    <p>
-                      Bunga melati (jasmine), sedap malam (tuberose), atau lily.
-                      Kesannya elegan dan bersih. (Contoh: Mykonos Luminos).
-                    </p>
-                    <p>
-                      Aroma mawar yang klasik, bisa terasa manis atau segar
-                      seperti embun pagi. (Contoh: Mykonos Enchanted).
-                    </p>
-                    <p>Aroma bunga yang lembut seperti bedak bayi.</p>
-
-                    <h2>c. Oriental/Amber</h2>
-                    <h3>
-                      Aroma yang memberikan kesan hangat, eksotis, mewah, dan
-                      biasanya sangat tahan lama.
-                    </h3>
-                    <h3>Contoh aroma oriental/amber :</h3>
-                    <ul>
-                      <li>Spicy</li>
-                      <li>Amber</li>
-                      <li>Woody Oriental</li>
-                    </ul>
-                    <p>
-                      Menggunakan rempah seperti kayu manis, cengkeh, atau lada
-                      merah (pink pepper). (Contoh: Scarlett Velvet Rouge).
-                    </p>
-                    <p>Aroma yg manis dan kental dari getah pohon.</p>
-                    <p>
-                      Perpaduan kayu-kayuan dengan sentuhan manis vanilla atau
-                      rempah.
-                    </p>
-
-                    <h2>d. Woody</h2>
-                    <h3>Memberikan kesan maskulin, tegas, dan membumi.</h3>
-                    <h3>Contoh aroma woody :</h3>
-                    <ul>
-                      <li>Sandalwood (Cendana)</li>
-                      <li>Cedarwood</li>
-                      <li>Patchouli (Nilam)</li>
-                    </ul>
-                    <p>Wangi kayu yang lembut dan sedikit creamy.</p>
-                    <p>
-                      Wangi kayu yang kering seperti pensil kayu, memberikan
-                      struktur pada parfum.
-                    </p>
-                    <p>Aroma tanah yang basah atau kayu yang dalam.</p>
-
-                    <h2>e. Gourmand</h2>
-                    <h3>
-                      Aroma makanan seperti vanila, cokelat, caramel, atau kopi
-                    </h3>
-                    <h3>Contoh aroma gourmand :</h3>
-                    <ul>
-                      <li>
-                        Vanilla, Cokelat, Karamel, atau Kopi. (Contoh: Scarlett
-                        Velvet Rouge memiliki notes kopi &amp; vanilla).
-                      </li>
-                    </ul>
-
-                    <h2>f. Fruity</h2>
-                    <h3>
-                      Berbeda dengan citrus, fruity lebih menonjolkan aroma buah
-                      yang manis dan berair.
-                    </h3>
-                    <h3>Contoh aroma fruity :</h3>
-                    <ul>
-                      <li>
-                        Buah-buahan: Apel, beri, persik (peach), atau raspberry.
-                        (Contoh: SAFF &amp; Co. Ostara).
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="info-section mt-4">
-                    <h1>JENIS PARFUM</h1>
-                    <h3>a. Extrait de Parfume</h3>
-                    <h3>b. Eau de Parfume</h3>
-                    <h3>c. Eau de Toilette</h3>
-                    <h3>d. Eau de Colegne</h3>
-                    <h1>AROMA CHARACTER</h1>
-                    <h3>• Extrait de Parfume</h3>
-                    <p>Konsentrasi minyak 20-40%, ketahanan 8-24 jam</p>
-                    <h3>• Eau de Parfume</h3>
-                    <p>Konsentrasi minyak 15-20%, ketahanan 5-8 jam</p>
-                    <h3>• Eau de Toilette</h3>
-                    <p>Konsentrasi minyak 5-15%, ketahanan 3-5 jam</p>
-                    <h3>• Eau de Colegne</h3>
-                    <p>Konsentrasi minyak 2-4%, ketahanan 2 jam</p>
-
-                    <div class="info-section mt-4">
-                      <h3>MORE INFORMATION</h3>
-                      <p>
-                        Jika Anda memiliki pertanyaan atau memerlukan bantuan,
-                        silakan hubungi kami melalui:
-                      </p>
-                      <ul>
-                        <li>Instagram : @guardian_id</li>
-                        <li>Website : https://wwww.guardianindonesia.co.id</li>
-                      </ul>
+                <div class="contact-list">
+                  <!-- Link Instagram -->
+                  <a href="https://instagram.com/guardian_id" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon">
+                      <ion-icon name="logo-instagram"></ion-icon>
                     </div>
-                  </div>
+                    <div class="contact-info">
+                      <span class="label">Instagram Resmi</span>
+                      <span class="value">@guardian_id</span>
+                    </div>
+                  </a>
+
+                  <!-- Link Website -->
+                  <a href="https://www.guardianindonesia.co.id" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon">
+                      <ion-icon name="globe-outline"></ion-icon>
+                    </div>
+                    <div class="contact-info">
+                      <span class="label">Official Website</span>
+                      <span class="value">www.guardianindonesia.co.id</span>
+                    </div>
+                  </a>
                 </div>
               </div>
+
             </div>
-          </header>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js "></script>
+    <script src="assets/js/main.js"></script>
     <script
-      type="module "
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js "
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
     ></script>
     <script
       nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js "
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
   </body>
 </html>
