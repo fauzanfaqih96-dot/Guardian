@@ -31,9 +31,7 @@ function generateStarRating(rating) {
   const fullStar = '<span class="star">★</span>';
   const emptyStar = '<span class="star">☆</span>';
   const roundedRating = Math.round(rating);
-  return (
-    fullStar.repeat(roundedRating) + emptyStar.repeat(5 - roundedRating)
-  );
+  return fullStar.repeat(roundedRating) + emptyStar.repeat(5 - roundedRating);
 }
 
 if (navigator.geolocation) {
@@ -50,13 +48,13 @@ if (navigator.geolocation) {
       // Event handler untuk tombol pencarian rumah sakit terdekat
       if (btnNearest) {
         btnNearest.addEventListener("click", () =>
-          listNearestHospitals(userLatLng)
+          listNearestHospitals(userLatLng),
         );
       }
     },
     (error) => {
       alert("Gagal mendapatkan lokasi:", error);
-    }
+    },
   );
 } else {
   alert("Geolocation tidak didukung oleh browser ini.");
@@ -75,7 +73,7 @@ function listNearestHospitals(userLatLng) {
       userLatLng[0],
       userLatLng[1],
       hospital.coordinates.latitude,
-      hospital.coordinates.longitude
+      hospital.coordinates.longitude,
     );
     return distance <= inputRad;
   });
@@ -86,11 +84,11 @@ function listNearestHospitals(userLatLng) {
     L.marker([hospital.coordinates.latitude, hospital.coordinates.longitude])
       .addTo(map)
       .bindPopup(
-        `<b>${hospital.name}</b><br>${hospital.address}<br>Rating: ${starRating}`
+        `<b>${hospital.name}</b><br>${hospital.address}<br>Rating: ${starRating}`,
       );
     map.flyTo(
       [hospital.coordinates.latitude, hospital.coordinates.longitude],
-      14
+      14,
     );
   });
 
@@ -101,10 +99,10 @@ function listNearestHospitals(userLatLng) {
     hospitalListContainer.innerHTML = "";
 
     filteredHospitals.forEach((hospital) => {
-        const listItem = document.createElement("li");
+      const listItem = document.createElement("li");
 
-        // Tambahkan ikon pin dan konten list rumah sakit
-        listItem.innerHTML = `
+      // Tambahkan ikon pin dan konten list rumah sakit
+      listItem.innerHTML = `
             <span style="color: red; font-size: 18px; margin-right: 10px;">
                 <ion-icon name="location-sharp"></ion-icon>
             </span>
@@ -112,15 +110,15 @@ function listNearestHospitals(userLatLng) {
             Rating: ${generateStarRating(hospital.rating)}
         `;
 
-        hospitalListContainer.appendChild(listItem);
-      });
+      hospitalListContainer.appendChild(listItem);
+    });
   }
 
-// Fungsi contoh untuk menghasilkan rating dengan bintang
-function generateStarRating(rating) {
+  // Fungsi contoh untuk menghasilkan rating dengan bintang
+  function generateStarRating(rating) {
     let stars = "";
     for (let i = 0; i < 5; i++) {
-        stars += i < rating ? "⭐" : "☆";
+      stars += i < rating ? "⭐" : "☆";
     }
     return stars;
   }
@@ -134,7 +132,7 @@ function calculateRoute(userLatLng) {
         userLatLng[0],
         userLatLng[1],
         hospital.coordinates.latitude,
-        hospital.coordinates.longitude
+        hospital.coordinates.longitude,
       );
       return { ...hospital, distance };
     })
@@ -146,7 +144,7 @@ function calculateRoute(userLatLng) {
       nearestHospital.coordinates.latitude,
       nearestHospital.coordinates.longitude,
     ],
-    14
+    14,
   );
 
   // Menandai posisi awal dan akhir rute

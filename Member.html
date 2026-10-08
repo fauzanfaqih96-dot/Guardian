@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOP BRANDS</title>
+     <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000000;
+      }
+
+      .container-central {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+        padding: 12px;
+      }
+      .main {
+        min-height: 100vh;
+        background: #f5f5f5;
+      }
+
+      .topbar {
+        min-height: 70px;
+        padding: 10px 24px;
+        background: #ed7d22;
+        color: #ffffff;
+      }
+
+      .topbar .toggle {
+        color: #ffffff;
+      }
+
+      .topbar h2 {
+        margin: 0;
+        color: #ffffff;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .member-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 36px 28px;
+      }
+
+      .page-heading {
+        margin-bottom: 28px;
+      }
+
+      .page-heading h1 {
+        margin: 0 0 8px;
+        color: #071a2b;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .page-heading p {
+        margin: 0;
+        color: #667085;
+      }
+
+      .filter-container {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding: 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 4px 14px rgba(7, 26, 43, 0.06);
+      }
+
+      .search-box {
+        display: flex;
+        flex: 1;
+        gap: 10px;
+        align-items: center;
+        max-width: 520px;
+        padding: 0 14px;
+        border: 1px solid #d0d5dd;
+        border-radius: 8px;
+        color: #667085;
+      }
+
+      .search-box input,
+      .filter-options select {
+        width: 100%;
+        min-height: 44px;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: #071a2b;
+        font: inherit;
+      }
+
+      .filter-options {
+        min-width: 180px;
+        padding: 0 12px;
+        border: 1px solid #d0d5dd;
+        border-radius: 8px;
+      }
+
+      .member-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+      }
+
+      .member-card {
+        padding: 24px 20px;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(7, 26, 43, 0.08);
+        text-align: center;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .member-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(7, 26, 43, 0.13);
+      }
+
+      .avatar-wrapper {
+        position: relative;
+        width: 92px;
+        height: 92px;
+        margin: 0 auto 16px;
+      }
+
+      .avatar-wrapper img {
+        width: 100%;
+        height: 100%;
+        border: 3px solid #ffe0c2;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .badge-status {
+        position: absolute;
+        right: 3px;
+        bottom: 5px;
+        width: 15px;
+        height: 15px;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+      }
+
+      .status-active {
+        background: #20a464;
+      }
+
+      .status-inactive {
+        background: #98a2b3;
+      }
+
+      .member-name {
+        margin: 0 0 5px;
+        color: #071a2b;
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+
+      .member-role {
+        display: inline-block;
+        margin: 0 0 10px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        background: #fff1e5;
+        color: #c45c13;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .member-email {
+        margin: 0 0 16px;
+        color: #667085;
+        font-size: 0.9rem;
+        overflow-wrap: anywhere;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .social-links a {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border-radius: 50%;
+        background: #f5f5f5;
+        color: #ed7d22;
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .social-links a:hover {
+        background: #ed7d22;
+        color: #ffffff;
+      }
+
+      @media (max-width: 768px) {
+        .member-page {
+          padding: 28px 18px;
+        }
+
+        .filter-container {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .search-box {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .member-page {
+          padding: 24px 14px;
+        }
+
+        .topbar {
+          padding: 8px 12px;
+        }
+
+        .topbar h2 {
+          font-size: 1rem;
+        }
+
+        .page-heading h1 {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="index.html">
+              <span class="icon">
+                <ion-icon name="home-outline"></ion-icon>
+              </span>
+              <span class="title">HOME</span>
+            </a>
+          </li>
+          <li>
+            <a href="Rute.html">
+              <span class="icon">
+                <ion-icon name="trophy-outline"></ion-icon>
+              </span>
+              <span class="title">TOP BRANDS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="bulb-outline"></ion-icon>
+              </span>
+              <span class="title">INFORMATION</span>
+            </a>
+          </li>
+          <li>
+            <a href="Daftarlist.html">
+              <span class="icon">
+                <ion-icon name="trending-up-outline"></ion-icon>
+              </span>
+              <span class="title">TRENDING PRODUCTS</span>
+            </a>
+          </li>
+          <li class="hovered">
+            <a href="Member.html">
+              <span class="icon">
+                <ion-icon name="people-outline"></ion-icon>
+              </span>
+              <span class="title">GUARDIAN MEMBER</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+          <h2>GUARDIAN MEMBER</h2>
+        </div>
+
+        <div class="member-page">
+          <!-- Header -->
+          <header class="page-heading">
+            <h1>Daftar Anggota Tim</h1>
+            <p>
+              Kelola dan lihat seluruh anggota komuniats / organisasi di sini
+            </p>
+          </header>
+
+          <!-- Search & Filter Bar -->
+          <div class="filter-container">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari nama atau email member..."
+                onkeyup="filterMembers()"
+              />
+            </div>
+            <div class="filter-options">
+              <select id="roleFilter" onchange="filterMembers()">
+                <option value="all">Semua Peran</option>
+                <option value="Developer">Developer</option>
+                <option value="Designer">Designer</option>
+                <option value="Manager">Manager</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Member Grid List -->
+          <div class="member-grid" id="memberGrid">
+            <!-- Member Card 1 -->
+            <div
+              class="member-card"
+              data-role="Developer"
+              data-name="Budi Santoso"
+            >
+              <div class="avatar-wrapper">
+                <img
+                  src="https://i.pravatar.cc/150?img=11"
+                  alt="Budi Santoso"
+                />
+                <span class="badge-status status-active" title="Aktif"></span>
+              </div>
+              <h3 class="member-name">Budi Santoso</h3>
+              <p class="member-role">Developer</p>
+              <p class="member-email">budi.santoso@example.com</p>
+              <div class="social-links">
+                <a href="#" title="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a href="#" title="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a href="#" title="Email"
+                  ><i class="fa-regular fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Member Card 2 -->
+            <div
+              class="member-card"
+              data-role="Designer"
+              data-name="Siti Rahma"
+            >
+              <div class="avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?img=5" alt="Siti Rahma" />
+                <span class="badge-status status-active" title="Aktif"></span>
+              </div>
+              <h3 class="member-name">Siti Rahma</h3>
+              <p class="member-role">Designer</p>
+              <p class="member-email">siti.rahma@example.com</p>
+              <div class="social-links">
+                <a href="#" title="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a href="#" title="Dribbble"
+                  ><i class="fa-brands fa-dribbble"></i
+                ></a>
+                <a href="#" title="Email"
+                  ><i class="fa-regular fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Member Card 3 -->
+            <div
+              class="member-card"
+              data-role="Manager"
+              data-name="Andi Wijaya"
+            >
+              <div class="avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Andi Wijaya" />
+                <span
+                  class="badge-status status-inactive"
+                  title="Non-aktif"
+                ></span>
+              </div>
+              <h3 class="member-name">Andi Wijaya</h3>
+              <p class="member-role">Manager</p>
+              <p class="member-email">andi.wijaya@example.com</p>
+              <div class="social-links">
+                <a href="#" title="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a href="#" title="Email"
+                  ><i class="fa-regular fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Member Card 4 -->
+            <div
+              class="member-card"
+              data-role="Developer"
+              data-name="Dewi Lestari"
+            >
+              <div class="avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?img=9" alt="Dewi Lestari" />
+                <span class="badge-status status-active" title="Aktif"></span>
+              </div>
+              <h3 class="member-name">Dewi Lestari</h3>
+              <p class="member-role">Developer</p>
+              <p class="member-email">dewi.l@example.com</p>
+              <div class="social-links">
+                <a href="#" title="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a href="#" title="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a href="#" title="Email"
+                  ><i class="fa-regular fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript untuk pencarian & filter -->
+    <script>
+      // const toggle = document.querySelector(".toggle");
+      // const navigation = document.querySelector(".navigation");
+
+      // toggle.addEventListener("click", () => {
+      //   navigation.classList.toggle("active");
+      // });
+
+      function filterMembers() {
+        const searchInput = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const roleFilter = document.getElementById("roleFilter").value;
+        const cards = document.querySelectorAll(".member-card");
+
+        cards.forEach((card) => {
+          const name = card.getAttribute("data-name").toLowerCase();
+          const email = card
+            .querySelector(".member-email")
+            .innerText.toLowerCase();
+          const role = card.getAttribute("data-role");
+
+          const matchesSearch =
+            name.includes(searchInput) || email.includes(searchInput);
+          const matchesRole = roleFilter === "all" || role === roleFilter;
+
+          if (matchesSearch && matchesRole) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
