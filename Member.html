@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GUARDIAN CITIMALL</title>
-     <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
+    <title>GUARDIAN CITIMALL - Member Info</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
+
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
@@ -30,73 +31,126 @@
 
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: #000000;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f8f9fa;
+        color: #333333;
       }
 
-      .container-central {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 12px;
-        padding: 12px;
-      }
       .main {
         min-height: 100vh;
-        background: #f5f5f5;
+        padding: 20px 40px 40px;
+        background: linear-gradient(135deg, #fff5f0 0%, #ffefe6 100%);
       }
 
+      /* =========================
+         TOPBAR GUARDIAN (ORANGE-PUTIH)
+      ========================= */
       .topbar {
-        min-height: 70px;
-        padding: 10px 24px;
-        background: #ed7d22;
-        color: #ffffff;
+        width: 100%;
+        height: 65px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        background: #ffffff;
+        border-radius: 16px;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 30px rgba(255, 102, 0, 0.08);
+        border: 1px solid rgba(255, 102, 0, 0.15);
       }
 
       .topbar .toggle {
-        color: #ffffff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        color: #ff6600;
+        cursor: pointer;
+        transition: transform 0.2s ease;
       }
 
-      .topbar h2 {
+      .topbar .toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .topbar .brand-title {
+        color: #ff6600;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
         margin: 0;
-        color: #ffffff;
-        font-size: 1.35rem;
-        font-weight: 700;
-        letter-spacing: 1px;
       }
 
+      .topbar .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .topbar .icon-btn {
+        color: #ff6600;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #fff5f0;
+        border: 1px solid rgba(255, 102, 0, 0.2);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .topbar .icon-btn:hover {
+        background: #ff6600;
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      /* =========================
+         MEMBER INFO PAGE
+      ========================= */
       .member-page {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 36px 28px;
       }
 
       .page-heading {
         margin-bottom: 28px;
+        text-align: center;
       }
 
       .page-heading h1 {
         margin: 0 0 8px;
-        color: #071a2b;
-        font-size: 2rem;
-        font-weight: 700;
+        color: #ff6600;
+        font-size: 2.2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       .page-heading p {
         margin: 0;
-        color: #667085;
+        color: #666666;
+        font-size: 1.05rem;
       }
 
+      /* Search & Filter Container */
       .filter-container {
         display: flex;
         gap: 16px;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
         padding: 16px;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
+        border: 1px solid #ffe5d9;
+        border-radius: 16px;
         background: #ffffff;
-        box-shadow: 0 4px 14px rgba(7, 26, 43, 0.06);
+        box-shadow: 0 8px 20px rgba(255, 102, 0, 0.05);
       }
 
       .search-box {
@@ -106,9 +160,10 @@
         align-items: center;
         max-width: 520px;
         padding: 0 14px;
-        border: 1px solid #d0d5dd;
-        border-radius: 8px;
-        color: #667085;
+        border: 1px solid #ffe0cc;
+        border-radius: 10px;
+        color: #ff6600;
+        background: #fffafa;
       }
 
       .search-box input,
@@ -118,126 +173,270 @@
         border: 0;
         outline: 0;
         background: transparent;
-        color: #071a2b;
+        color: #333333;
         font: inherit;
       }
 
       .filter-options {
-        min-width: 180px;
+        min-width: 200px;
         padding: 0 12px;
-        border: 1px solid #d0d5dd;
-        border-radius: 8px;
+        border: 1px solid #ffe0cc;
+        border-radius: 10px;
+        background: #fffafa;
       }
 
+      /* Member Benefit Grid */
       .member-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
       }
 
-      .member-card {
+      .info-card {
         padding: 24px 20px;
-        border: 1px solid #e5e7eb;
-        border-radius: 14px;
+        border: 1px solid #ffe5d9;
+        border-radius: 18px;
         background: #ffffff;
-        box-shadow: 0 6px 18px rgba(7, 26, 43, 0.08);
+        box-shadow: 0 8px 20px rgba(255, 102, 0, 0.05);
         text-align: center;
         transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
-      .member-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(7, 26, 43, 0.13);
+      .info-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(255, 102, 0, 0.18);
+        border-color: #ff6600;
       }
 
-      .avatar-wrapper {
-        position: relative;
-        width: 92px;
-        height: 92px;
+      .app-banner-wrapper {
+        width: 100%;
+        max-width: 210px;
+        height: 220px;
         margin: 0 auto 16px;
+        border-radius: 14px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 15px rgba(255, 102, 0, 0.12);
       }
 
-      .avatar-wrapper img {
+      .app-banner-wrapper img {
         width: 100%;
         height: 100%;
-        border: 3px solid #ffe0c2;
+        object-fit: contain;
+      }
+
+      .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 18px;
+        background: #fff5f0;
         border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .badge-status {
-        position: absolute;
-        right: 3px;
-        bottom: 5px;
-        width: 15px;
-        height: 15px;
-        border: 2px solid #ffffff;
-        border-radius: 50%;
-      }
-
-      .status-active {
-        background: #20a464;
-      }
-
-      .status-inactive {
-        background: #98a2b3;
-      }
-
-      .member-name {
-        margin: 0 0 5px;
-        color: #071a2b;
-        font-size: 1.15rem;
-        font-weight: 700;
-      }
-
-      .member-role {
-        display: inline-block;
-        margin: 0 0 10px;
-        padding: 4px 12px;
-        border-radius: 20px;
-        background: #fff1e5;
-        color: #c45c13;
-        font-size: 0.85rem;
-        font-weight: 600;
-      }
-
-      .member-email {
-        margin: 0 0 16px;
-        color: #667085;
-        font-size: 0.9rem;
-        overflow-wrap: anywhere;
-      }
-
-      .social-links {
         display: flex;
-        gap: 10px;
+        align-items: center;
         justify-content: center;
+        color: #ff6600;
+        font-size: 2.2rem;
+        border: 1px solid rgba(255, 102, 0, 0.15);
       }
 
-      .social-links a {
-        display: grid;
-        width: 36px;
-        height: 36px;
-        place-items: center;
-        border-radius: 50%;
-        background: #f5f5f5;
-        color: #ed7d22;
-        text-decoration: none;
-        transition:
-          background 0.2s ease,
-          color 0.2s ease;
-      }
-
-      .social-links a:hover {
-        background: #ed7d22;
+      .info-badge {
+        display: inline-block;
+        margin: 0 auto 12px;
+        padding: 4px 14px;
+        border-radius: 20px;
+        background: #ff6600;
         color: #ffffff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .info-title {
+        margin: 0 0 10px;
+        color: #222222;
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+
+      .info-desc {
+        margin: 0 0 15px;
+        color: #666666;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .store-contact {
+        background: #fff5f0;
+        border: 1px dashed #ff6600;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.88rem;
+        color: #ff6600;
+        font-weight: 700;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .btn-detail {
+        background: #fff5f0;
+        color: #ff6600;
+        border: 1px solid #ffe0cc;
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-detail:hover {
+        background: #ff6600;
+        color: #ffffff;
+        border-color: #ff6600;
+        text-decoration: none;
+      }
+
+      /* =========================
+         POP-UP FORMULIR KUNJUNGAN
+      ========================= */
+      dialog.popup-form {
+        border: none;
+        border-radius: 20px;
+        padding: 0;
+        max-width: 480px;
+        width: 92%;
+        background: #ffffff;
+        box-shadow: 0 20px 50px rgba(255, 102, 0, 0.2);
+        overflow: hidden;
+      }
+
+      dialog.popup-form[open] {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: formAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes formAnim {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -45%) scale(0.92);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      dialog.popup-form::backdrop {
+        background: rgba(15, 15, 20, 0.55);
+        backdrop-filter: blur(5px);
+      }
+
+      .form-header {
+        background: #ff6600;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .form-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+
+      .form-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .form-body {
+        padding: 24px;
+      }
+
+      .form-group-custom {
+        margin-bottom: 16px;
+        text-align: left;
+      }
+
+      .form-group-custom label {
+        display: block;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #444444;
+        margin-bottom: 6px;
+      }
+
+      .form-group-custom input,
+      .form-group-custom select {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #ffe0cc;
+        border-radius: 10px;
+        background: #fffafa;
+        font-size: 0.95rem;
+        outline: none;
+      }
+
+      .form-group-custom input:focus,
+      .form-group-custom select:focus {
+        border-color: #ff6600;
+        background: #ffffff;
+      }
+
+      .btn-submit-visit {
+        width: 100%;
+        background: #25d366; /* Warna hijau khas WhatsApp */
+        color: #ffffff;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .btn-submit-visit:hover {
+        background: #1ebe5d;
       }
 
       @media (max-width: 768px) {
-        .member-page {
-          padding: 28px 18px;
+        .main {
+          padding: 15px;
+        }
+
+        .topbar {
+          height: 55px;
+          padding: 0 15px;
+          margin-bottom: 20px;
         }
 
         .filter-container {
@@ -249,28 +448,12 @@
           max-width: none;
         }
       }
-
-      @media (max-width: 480px) {
-        .member-page {
-          padding: 24px 14px;
-        }
-
-        .topbar {
-          padding: 8px 12px;
-        }
-
-        .topbar h2 {
-          font-size: 1rem;
-        }
-
-        .page-heading h1 {
-          font-size: 1.6rem;
-        }
-      }
     </style>
   </head>
+
   <body>
-    <div class="">
+    <!-- =============== Navigation ================ -->
+    <div>
       <div class="navigation">
         <ul>
           <li>
@@ -290,7 +473,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="Informasi.html">
               <span class="icon">
                 <ion-icon name="bulb-outline"></ion-icon>
               </span>
@@ -305,7 +488,7 @@
               <span class="title">TRENDING PRODUCTS</span>
             </a>
           </li>
-          <li class="hovered">
+          <li>
             <a href="Member.html">
               <span class="icon">
                 <ion-icon name="people-outline"></ion-icon>
@@ -316,191 +499,288 @@
         </ul>
       </div>
 
+      <!-- ========================= Main ==================== -->
       <div class="main">
         <div class="topbar">
           <div class="toggle">
             <ion-icon name="menu-outline"></ion-icon>
           </div>
-          <h2>GUARDIAN MEMBER</h2>
+          <h1 class="brand-title">Guardian Member</h1>
+          <div class="topbar-actions">
+            <a href="index.html" class="icon-btn" title="Home">
+              <ion-icon name="home-outline"></ion-icon>
+            </a>
+            <a href="Member.html" class="icon-btn" title="Member">
+              <ion-icon name="person-outline"></ion-icon>
+            </a>
+          </div>
         </div>
 
         <div class="member-page">
-          <!-- Header -->
           <header class="page-heading">
-            <h1>Daftar Anggota Tim</h1>
+            <h1>Informasi & Benefit Member</h1>
             <p>
-              Kelola dan lihat seluruh anggota komuniats / organisasi di sini
+              Nikmati diskon eksklusif, cashback poin, dan penawaran spesial
+              belanja di Guardian Citimall.
             </p>
           </header>
 
-          <!-- Search & Filter Bar -->
           <div class="filter-container">
             <div class="search-box">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <ion-icon name="search-outline"></ion-icon>
               <input
                 type="text"
                 id="searchInput"
-                placeholder="Cari nama atau email member..."
-                onkeyup="filterMembers()"
+                placeholder="Cari informasi promo atau benefit member..."
+                onkeyup="filterInfo()"
               />
             </div>
             <div class="filter-options">
-              <select id="roleFilter" onchange="filterMembers()">
-                <option value="all">Semua Peran</option>
-                <option value="Developer">Developer</option>
-                <option value="Designer">Designer</option>
-                <option value="Manager">Manager</option>
+              <select id="categoryFilter" onchange="filterInfo()">
+                <option value="all">Semua Kategori</option>
+                <option value="app">Aplikasi & Pendaftaran</option>
+                <option value="diskon">Diskon Khusus</option>
+                <option value="poin">Poin & Hadiah</option>
+                <option value="event">Event & Layanan</option>
               </select>
             </div>
           </div>
 
-          <!-- Member Grid List -->
-          <div class="member-grid" id="memberGrid">
-            <!-- Member Card 1 -->
+          <div class="member-grid" id="infoGrid">
+            <!-- KARTU 1 -->
             <div
-              class="member-card"
-              data-role="Developer"
-              data-name="Budi Santoso"
+              class="info-card"
+              data-category="app"
+              data-title="MY Guardian Rewards App"
             >
-              <div class="avatar-wrapper">
-                <img
-                  src="https://i.pravatar.cc/150?img=11"
-                  alt="Budi Santoso"
-                />
-                <span class="badge-status status-active" title="Aktif"></span>
+              <div>
+                <div class="app-banner-wrapper">
+                  <img
+                    src="assets/img/qr.jpeg"
+                    alt="MY Guardian Rewards QR Code"
+                  />
+                </div>
+                <span class="info-badge">Join Now!</span>
+                <h3 class="info-title">MY Guardian Rewards</h3>
+                <p class="info-desc">
+                  Scan QR Code di atas atau unduh aplikasi Guardian ID di Play
+                  Store / App Store untuk bergabung menjadi member resmi dan
+                  nikmati promo eksklusif!
+                </p>
               </div>
-              <h3 class="member-name">Budi Santoso</h3>
-              <p class="member-role">Developer</p>
-              <p class="member-email">budi.santoso@example.com</p>
-              <div class="social-links">
-                <a href="#" title="LinkedIn"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-                <a href="#" title="GitHub"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-                <a href="#" title="Email"
-                  ><i class="fa-regular fa-envelope"></i
-                ></a>
-              </div>
+              <a
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-detail"
+                >Download Aplikasi</a
+              >
             </div>
 
-            <!-- Member Card 2 -->
+            <!-- KARTU 2: Harga Khusus Member -->
             <div
-              class="member-card"
-              data-role="Designer"
-              data-name="Siti Rahma"
+              class="info-card"
+              data-category="diskon"
+              data-title="Harga Spesial Member"
             >
-              <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=5" alt="Siti Rahma" />
-                <span class="badge-status status-active" title="Aktif"></span>
+              <div>
+                <div class="icon-wrapper">
+                  <ion-icon name="pricetag-outline"></ion-icon>
+                </div>
+                <span class="info-badge">Eksklusif</span>
+                <h3 class="info-title">Harga Khusus Member</h3>
+                <p class="info-desc">
+                  Dapatkan potongan harga langsung hingga 30% untuk produk
+                  skincare, personal care, dan suplemen pilihan setiap bulannya.
+                </p>
               </div>
-              <h3 class="member-name">Siti Rahma</h3>
-              <p class="member-role">Designer</p>
-              <p class="member-email">siti.rahma@example.com</p>
-              <div class="social-links">
-                <a href="#" title="LinkedIn"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-                <a href="#" title="Dribbble"
-                  ><i class="fa-brands fa-dribbble"></i
-                ></a>
-                <a href="#" title="Email"
-                  ><i class="fa-regular fa-envelope"></i
-                ></a>
-              </div>
+              <a href="Daftarlist.html" class="btn-detail"
+                >Lihat Katalog Promo</a
+              >
             </div>
 
-            <!-- Member Card 3 -->
+            <!-- KARTU 3: Poin Belanja -->
             <div
-              class="member-card"
-              data-role="Manager"
-              data-name="Andi Wijaya"
+              class="info-card"
+              data-category="poin"
+              data-title="Poin Belanja Guardian"
             >
-              <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=12" alt="Andi Wijaya" />
-                <span
-                  class="badge-status status-inactive"
-                  title="Non-aktif"
-                ></span>
+              <div>
+                <div class="icon-wrapper">
+                  <ion-icon name="gift-outline"></ion-icon>
+                </div>
+                <span class="info-badge">Reward Poin</span>
+                <h3 class="info-title">Poin Setiap Belanja</h3>
+                <p class="info-desc">
+                  Kumpulkan poin dari setiap transaksi dan tukarkan langsung
+                  sebagai voucher belanja tunai atau produk gratis pilihan.
+                </p>
               </div>
-              <h3 class="member-name">Andi Wijaya</h3>
-              <p class="member-role">Manager</p>
-              <p class="member-email">andi.wijaya@example.com</p>
-              <div class="social-links">
-                <a href="#" title="LinkedIn"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-                <a href="#" title="Email"
-                  ><i class="fa-regular fa-envelope"></i
-                ></a>
-              </div>
+              <a href="#" class="btn-detail">Cek Cara Tukar Poin</a>
             </div>
 
-            <!-- Member Card 4 -->
+            <!-- KARTU 4: Cek Kesehatan Gratis & Pendaftaran Kunjungan -->
             <div
-              class="member-card"
-              data-role="Developer"
-              data-name="Dewi Lestari"
+              class="info-card"
+              data-category="event"
+              data-title="Cek Kesehatan Gratis"
             >
-              <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=9" alt="Dewi Lestari" />
-                <span class="badge-status status-active" title="Aktif"></span>
+              <div>
+                <div class="icon-wrapper">
+                  <ion-icon name="fitness-outline"></ion-icon>
+                </div>
+                <span class="info-badge">Layanan Kesehatan</span>
+                <h3 class="info-title">Cek Kesehatan Gratis</h3>
+                <p class="info-desc">
+                  Fasilitas pemeriksaan tekanan darah dan konsultasi apoteker
+                  gratis secara berkala khusus anggota di store Guardian
+                  Citimall.
+                </p>
+
+                <!-- Nomor Handphone/WhatsApp Toko -->
+                <div class="store-contact">
+                  <ion-icon name="call-outline"></ion-icon>
+                  <span>CS Store: +62 812-3456-7890</span>
+                </div>
               </div>
-              <h3 class="member-name">Dewi Lestari</h3>
-              <p class="member-role">Developer</p>
-              <p class="member-email">dewi.l@example.com</p>
-              <div class="social-links">
-                <a href="#" title="LinkedIn"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-                <a href="#" title="GitHub"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-                <a href="#" title="Email"
-                  ><i class="fa-regular fa-envelope"></i
-                ></a>
-              </div>
+              <button class="btn-detail" onclick="openHealthForm()">
+                Daftar Kunjungan
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- JavaScript untuk pencarian & filter -->
+    <!-- =======================================
+         MODAL POP-UP FORMULIR KUNJUNGAN KE WHATSAPP
+    ======================================= -->
+    <dialog id="healthFormPopup" class="popup-form">
+      <div class="form-header">
+        <h3>Daftar Kunjungan Cek Kesehatan</h3>
+        <button class="form-close-btn" onclick="closeHealthForm()">
+          &times;
+        </button>
+      </div>
+      <div class="form-body">
+        <form id="visitForm" onsubmit="submitToWhatsApp(event)">
+          <div class="form-group-custom">
+            <label for="visitorName">Nama Lengkap Member</label>
+            <input
+              type="text"
+              id="visitorName"
+              placeholder="Masukkan nama sesuai KTP/Member"
+              required
+            />
+          </div>
+
+          <div class="form-group-custom">
+            <label for="visitorPhone">Nomor WhatsApp / HP</label>
+            <input
+              type="tel"
+              id="visitorPhone"
+              placeholder="Contoh: 081234567890"
+              required
+            />
+          </div>
+
+          <div class="form-group-custom">
+            <label for="serviceType">Jenis Layanan Kesehatan</label>
+            <select id="serviceType" required>
+              <option value="Cek Tensi Darah">Cek Tensi Darah (Gratis)</option>
+              <option value="Konsultasi Apoteker">
+                Konsultasi Apoteker (Gratis)
+              </option>
+              <option value="Cek Gula Darah & Kolesterol">
+                Cek Gula Darah & Kolesterol
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group-custom">
+            <label for="visitDate">Rencana Tanggal Kunjungan</label>
+            <input type="date" id="visitDate" required />
+          </div>
+
+          <button type="submit" class="btn-submit-visit">
+            <ion-icon name="logo-whatsapp" style="font-size: 1.2rem"></ion-icon>
+            Kirim Pesan ke WhatsApp Toko
+          </button>
+        </form>
+      </div>
+    </dialog>
+
     <script>
-      // const toggle = document.querySelector(".toggle");
-      // const navigation = document.querySelector(".navigation");
-
-      // toggle.addEventListener("click", () => {
-      //   navigation.classList.toggle("active");
-      // });
-
-      function filterMembers() {
+      function filterInfo() {
         const searchInput = document
           .getElementById("searchInput")
           .value.toLowerCase();
-        const roleFilter = document.getElementById("roleFilter").value;
-        const cards = document.querySelectorAll(".member-card");
+        const categoryFilter = document.getElementById("categoryFilter").value;
+        const cards = document.querySelectorAll(".info-card");
 
         cards.forEach((card) => {
-          const name = card.getAttribute("data-name").toLowerCase();
-          const email = card
-            .querySelector(".member-email")
-            .innerText.toLowerCase();
-          const role = card.getAttribute("data-role");
+          const title = card.getAttribute("data-title").toLowerCase();
+          const category = card.getAttribute("data-category");
 
-          const matchesSearch =
-            name.includes(searchInput) || email.includes(searchInput);
-          const matchesRole = roleFilter === "all" || role === roleFilter;
+          const matchesSearch = title.includes(searchInput);
+          const matchesCategory =
+            categoryFilter === "all" || category === categoryFilter;
 
-          if (matchesSearch && matchesRole) {
-            card.style.display = "block";
+          if (matchesSearch && matchesCategory) {
+            card.style.display = "flex";
           } else {
             card.style.display = "none";
           }
         });
       }
+
+      // Fungsi Buka & Tutup Pop-Up Formulir
+      const healthPopup = document.getElementById("healthFormPopup");
+
+      function openHealthForm() {
+        healthPopup.showModal();
+      }
+
+      function closeHealthForm() {
+        healthPopup.close();
+      }
+
+      // Fungsi Kirim Form Langsung ke WhatsApp Toko
+      function submitToWhatsApp(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("visitorName").value;
+        const phone = document.getElementById("visitorPhone").value;
+        const service = document.getElementById("serviceType").value;
+        const date = document.getElementById("visitDate").value;
+
+        // Nomor WhatsApp Toko (Format Internasional tanpa tanda +)
+        const storeWhatsAppNumber = "085947549340";
+
+        // Format Pesan WhatsApp
+        const message = `Halo CS Guardian Citimall, saya ingin mendaftarkan kunjungan layanan kesehatan.%0A%0A*Nama:* ${name}%0A*No HP/WA:* ${phone}%0A*Layanan:* ${service}%0A*Tanggal Kunjungan:* ${date}%0A%0AMohon konfirmasinya, terima kasih!`;
+
+        // Buka tautan WhatsApp
+        const whatsappUrl = `https://wa.me/${storeWhatsAppNumber}?text=${message}`;
+        window.open(whatsappUrl, "_blank");
+
+        // Tutup modal form
+        closeHealthForm();
+        document.getElementById("visitForm").reset();
+      }
+
+      // Menutup modal jika diklik area luar (backdrop)
+      healthPopup.addEventListener("click", (e) => {
+        const dialogBounds = healthPopup.getBoundingClientRect();
+        if (
+          e.clientX < dialogBounds.left ||
+          e.clientX > dialogBounds.right ||
+          e.clientY < dialogBounds.top ||
+          e.clientY > dialogBounds.bottom
+        ) {
+          healthPopup.close();
+        }
+      });
     </script>
   </body>
 </html>
