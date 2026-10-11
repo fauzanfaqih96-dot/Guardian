@@ -1,46 +1,162 @@
-<<!doctype html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GUARDIAN CITIMALL - Personal Care</title>
+    <title>GUARDIAN CITIMALL</title>
     <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
 
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <!-- Google Fonts & Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        background-color: #f8f9fa;
-        color: #333333;
+      * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
 
-      /* Background utama dengan gradien oranye-putih */
-      .main {
+      body {
+        margin: 0;
+        font-family: 'Poppins', Arial, sans-serif;
+        background: linear-gradient(135deg, #fff5f0 0%, #ffefe6 50%, #ffd8c2 100%);
+        background-attachment: fixed;
+        color: #333333;
         min-height: 100vh;
-        padding: 20px 40px 40px;
-        background: linear-gradient(135deg, #fff5f0 0%, #ffefe6 100%);
-        color: #071a2b;
+        overflow-x: hidden;
       }
 
-      /* Topbar Oranye & Putih khas Guardian */
+      /* =========================================
+         SIDEBAR NAVIGATION & TOGGLE (RESPONSIVE)
+      ========================================= */
+      .navigation {
+        position: fixed;
+        width: 280px;
+        height: 100%;
+        background: #e07b30;
+        transition: 0.5s ease;
+        overflow: hidden;
+        z-index: 100;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .navigation.active-sidebar {
+        width: 80px;
+      }
+
+      .navigation ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-left: 12px;
+        margin-top: 20px;
+        list-style: none;
+      }
+
+      .navigation ul li {
+        position: relative;
+        width: 100%;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        margin-bottom: 5px;
+      }
+
+      .navigation ul li.hovered,
+      .navigation ul li.active {
+        background: #ffffff;
+      }
+
+      .navigation ul li a {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+        padding: 12px 0;
+      }
+
+      .navigation ul li.hovered a,
+      .navigation ul li.active a {
+        color: #e07b30;
+      }
+
+      .navigation ul li a .icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 60px;
+        height: 50px;
+        font-size: 1.6rem;
+      }
+
+      .navigation ul li a .title {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        height: 50px;
+        line-height: 50px;
+        text-align: start;
+        white-space: nowrap;
+        letter-spacing: 0.5px;
+        font-size: 0.95rem;
+        transition: 0.3s;
+      }
+
+      /* Efek Lekukan Kurva Atas & Bawah (Curved Active Tab) */
+      .navigation ul li.hovered a::before,
+      .navigation ul li.active a::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 35px 35px 0 10px #ffffff;
+        pointer-events: none;
+      }
+
+      .navigation ul li.hovered a::after,
+      .navigation ul li.active a::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 35px -35px 0 10px #ffffff;
+        pointer-events: none;
+      }
+
+      /* =========================================
+         MAIN CONTENT AREA
+      ========================================= */
+      .main {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+        min-height: 100vh;
+        padding: 20px 30px 40px;
+        transition: 0.5s ease;
+      }
+
+      .main.active-main {
+        margin-left: 80px;
+        width: calc(100% - 80px);
+      }
+
       .topbar {
         width: 100%;
         height: 65px;
@@ -50,44 +166,46 @@
         padding: 0 25px;
         background: #ffffff;
         border-radius: 16px;
-        margin-bottom: 35px;
+        margin-bottom: 25px;
         box-shadow: 0 10px 30px rgba(255, 102, 0, 0.08);
         border: 1px solid rgba(255, 102, 0, 0.15);
       }
 
       .topbar .toggle {
+        font-size: 1.8rem;
+        color: #e07b30;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 40px;
         height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.8rem;
-        color: #ff6600;
-        cursor: pointer;
-        transition: transform 0.2s ease;
+        border-radius: 50%;
+        background: #fff5f0;
+        transition: background 0.3s ease;
       }
 
       .topbar .toggle:hover {
-        transform: scale(1.1);
+        background: #ffe0cc;
       }
 
       .topbar .brand-title {
-        color: #ff6600;
-        font-size: 1.2rem;
+        color: #e07b30;
+        font-size: 1.25rem;
         font-weight: 800;
-        letter-spacing: 1.2px;
+        letter-spacing: 1px;
         text-transform: uppercase;
         margin: 0;
       }
 
-      .topbar .topbar-actions {
+      .topbar-actions {
         display: flex;
         align-items: center;
         gap: 12px;
       }
 
       .topbar .icon-btn {
-        color: #ff6600;
+        color: #e07b30;
         font-size: 1.3rem;
         display: flex;
         align-items: center;
@@ -102,9 +220,8 @@
       }
 
       .topbar .icon-btn:hover {
-        background: #ff6600;
+        background: #e07b30;
         color: #ffffff;
-        transform: translateY(-2px);
       }
 
       /* Best Seller Button */
@@ -113,19 +230,19 @@
         padding: 12px 35px;
         border: none;
         border-radius: 30px;
-        background: #ff6600;
+        background: #e07b30;
         color: #ffffff;
         letter-spacing: 1px;
         font-weight: 700;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 8px 20px rgba(255, 102, 0, 0.25);
+        box-shadow: 0 8px 20px rgba(224, 123, 48, 0.25);
       }
 
       .best-btn:hover {
-        background: #e55c00;
+        background: #c8651d;
         transform: translateY(-2px);
-        box-shadow: 0 12px 25px rgba(255, 102, 0, 0.35);
+        box-shadow: 0 12px 25px rgba(224, 123, 48, 0.35);
         color: #ffffff;
       }
 
@@ -152,7 +269,7 @@
 
       .container-content:hover {
         transform: translateY(-6px);
-        border-color: #ff6600;
+        border-color: #e07b30;
         box-shadow: 0 12px 25px rgba(255, 102, 0, 0.18);
       }
 
@@ -163,176 +280,73 @@
         border-radius: 10px;
       }
 
-      .container-content h1 {
-        font-size: 15px;
-        margin: 12px 0 4px;
-        color: #333333;
-        font-weight: 700;
+      .container-content .product-title {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: #222222 !important;
+        margin: 6px 0 !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 34px;
       }
 
-      .container-content h1:last-child {
-        font-size: 14px;
-        color: #ff6600;
-        font-weight: 700;
+      .price-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        width: 100% !important;
+        margin-top: 4px !important;
       }
 
-      /* Styling Judul / Nama Produk */
-.container-content .product-title,
-.container-content h1:first-of-type {
-  font-size: 13px !important; /* Ukuran teks nama produk diperkecil */
-  font-weight: 600 !important;
-  color: #222222 !important;
-  margin: 6px 0 4px !important;
-  line-height: 1.3 !important;
-  text-align: center;
-  
-  /* Membatasi teks maksimal 2 baris agar tinggi kartu tetap rapi */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 34px; /* Menjaga tinggi area judul seragam */
-}
+      .price-old {
+        text-decoration: line-through !important;
+        color: #a0a0a0 !important;
+        font-size: 11px !important;
+      }
 
-/* Styling Container Harga */
-.price-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  margin-top: 4px !important;
-}
+      .price-new {
+        color: #e07b30 !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+      }
 
-/* Harga Coret / Lama */
-.price-old,
-.price-container span:first-child {
-  text-decoration: line-through !important;
-  color: #a0a0a0 !important;
-  font-size: 11px !important; /* Ukuran harga dicoret diperkecil */
-  font-weight: normal !important;
-}
+      /* Bar Harga Member */
+      .member-bar {
+        width: 100%;
+        background: linear-gradient(135deg, #e07b30, #f2944b);
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 4px 8px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 6px rgba(224, 123, 48, 0.25);
+      }
 
-/* Harga Baru / Diskon */
-.price-new,
-.price-container span:last-child {
-  color: #ff6600 !important; /* Warna oranye khas Guardian */
-  font-size: 13px !important; /* Ukuran harga promo pas & pas di kartu */
-  font-weight: 700 !important;
-}
+      .member-bar .member-badge {
+        font-size: 9px;
+        font-weight: 800;
+        background: #ffffff;
+        color: #e07b30;
+        padding: 2px 5px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+      }
 
-/* 1. Pembungkus Kartu Produk */
-.container-content {
-  width: 170px !important;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 12px;
-  border: 1.5px solid #ffe5d9;
-  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.06);
-  text-align: center;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* Memastikan semua elemen anak berada di tengah */
-  justify-content: space-between;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* 2. Pembungkus Gambar (Bikin Gambar Tepat di Tengah) */
-.img-box {
-  width: 100% !important;
-  height: 130px !important; /* Menentukan tinggi area gambar */
-  display: flex !important;
-  align-items: center !important;     /* Rata tengah vertikal */
-  justify-content: center !important;  /* Rata tengah horizontal */
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 8px;
-}
-
-/* 3. Gambar Produk */
-.img-box img,
-.container-content img {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain !important; /* Gambar tidak terpotong & tidak gepeng */
-  display: block !important;
-  margin: 0 auto !important;
-}
-
-/* 4. Nama Produk Presisi di Tengah */
-.container-content .product-title,
-.container-content h1:first-of-type {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: #222222 !important;
-  margin: 6px 0 !important;
-  line-height: 1.3 !important;
-  text-align: center !important;
-  
-  /* Batas maksimal 2 baris agar tinggi kartu sejajar */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 34px;
-}
-
-/* 5. Harga Presisi di Tengah */
-.price-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  width: 100% !important;
-  margin-top: 4px !important;
-}
-
-.price-old {
-  text-decoration: line-through !important;
-  color: #a0a0a0 !important;
-  font-size: 11px !important;
-}
-
-.price-new {
-  color: #ff6600 !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-}
-
-/* Bar Harga Member */
-.member-bar {
-  width: 100%;
-  background: linear-gradient(135deg, #ff6600, #ff8533);
-  color: #ffffff;
-  border-radius: 8px;
-  padding: 4px 8px;
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 6px rgba(255, 102, 0, 0.25);
-}
-
-.member-bar .member-badge {
-  font-size: 9px;
-  font-weight: 800;
-  background: #ffffff;
-  color: #ff6600;
-  padding: 2px 5px;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
-}
-
-.member-bar .member-price {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
+      .member-bar .member-price {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
 
       /* =======================================
-         DESAIN POP-UP MODAL (LEBIH MENARIK)
+         DESAIN POP-UP MODAL (TIDAK DIUBAH)
       ======================================= */
       dialog.popup {
         border: none;
@@ -386,7 +400,7 @@
         border-radius: 50%;
         background: #ffffff;
         border: 1px solid #ffe5d9;
-        color: #ff6600;
+        color: #e07b30;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -396,13 +410,13 @@
       }
 
       .popup-close-icon:hover {
-        background: #ff6600;
+        background: #e07b30;
         color: #ffffff;
       }
 
       .popup-badge {
         display: inline-block;
-        background: #ff6600;
+        background: #e07b30;
         color: #ffffff;
         font-size: 0.75rem;
         font-weight: 700;
@@ -444,12 +458,11 @@
       .popup-price {
         font-size: 1.2rem;
         font-weight: 800;
-        color: #ff6600;
+        color: #e07b30;
         text-align: center;
         margin-bottom: 15px;
       }
 
-      /* Tabs Interaktif dalam Popup */
       .popup-tabs {
         display: flex;
         justify-content: center;
@@ -473,7 +486,7 @@
 
       .tab-btn.active {
         background: #fff5f0;
-        color: #ff6600;
+        color: #e07b30;
       }
 
       .tab-content {
@@ -488,7 +501,6 @@
         display: block;
       }
 
-      /* Tombol Aksi Popup */
       .popup-actions {
         display: flex;
         gap: 10px;
@@ -497,7 +509,7 @@
 
       .btn-add-cart {
         flex: 1;
-        background: #ff6600;
+        background: #e07b30;
         color: #ffffff;
         border: none;
         padding: 12px;
@@ -513,8 +525,8 @@
       }
 
       .btn-add-cart:hover {
-        background: #e55c00;
-        box-shadow: 0 6px 15px rgba(255, 102, 0, 0.3);
+        background: #c8651d;
+        box-shadow: 0 6px 15px rgba(224, 123, 48, 0.3);
       }
 
       .btn-close-popup {
@@ -533,349 +545,315 @@
         background: #eeeeee;
       }
 
-      /* Mobile Responsiveness */
       @media (max-width: 768px) {
         .main {
           padding: 15px;
         }
-
         .topbar {
           height: 55px;
           padding: 0 15px;
           margin-bottom: 20px;
         }
-
         .topbar .brand-title {
           font-size: 0.95rem;
-        }
-
-        .container-content {
-          width: 90%;
-          max-width: 320px;
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- =============== Navigation ================ -->
-    <div>
-      <div class="navigation">
-        <ul>
-          <li>
-            <a href="index.html">
-              <span class="icon">
-                <ion-icon name="home-outline"></ion-icon>
-              </span>
-              <span class="title">HOME</span>
-            </a>
-          </li>
-          <li>
-            <a href="Rute.html">
-              <span class="icon">
-                <ion-icon name="trophy-outline"></ion-icon>
-              </span>
-              <span class="title">TOP BRANDS</span>
-            </a>
-          </li>
-          <li>
-            <a href="Informasi.html">
-              <span class="icon">
-                <ion-icon name="bulb-outline"></ion-icon>
-              </span>
-              <span class="title">INFORMATION</span>
-            </a>
-          </li>
-          <li>
-            <a href="Daftarlist.html">
-              <span class="icon">
-                <ion-icon name="trending-up-outline"></ion-icon>
-              </span>
-              <span class="title">TRENDING PRODUCTS</span>
-            </a>
-          </li>
-          <li>
-            <a href="Member.html">
-              <span class="icon">
-                <ion-icon name="people-outline"></ion-icon>
-              </span>
-              <span class="title">GUARDIAN MEMBER</span>
-            </a>
-          </li>
-        </ul>
+    <!-- =============== Sidebar Navigation =============== -->
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="index.html">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">HOME</span>
+          </a>
+        </li>
+        <li>
+          <a href="Rute.html">
+            <span class="icon"><ion-icon name="trophy-outline"></ion-icon></span>
+            <span class="title">TOP BRANDS</span>
+          </a>
+        </li>
+        <li>
+          <a href="Informasi.html">
+            <span class="icon"><ion-icon name="bulb-outline"></ion-icon></span>
+            <span class="title">INFORMATION</span>
+          </a>
+        </li>
+        <li>
+          <a href="Daftarlist.html">
+            <span class="icon"><ion-icon name="trending-up-outline"></ion-icon></span>
+            <span class="title">TRENDING PRODUCTS</span>
+          </a>
+        </li>
+        <li>
+          <a href="Member.html">
+            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="title">GUARDIAN MEMBER</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <!-- Topbar Oranye & Putih Khas Guardian -->
+      <div class="topbar">
+        <div class="toggle" id="menuToggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <h1 class="brand-title">GUARDIAN CITIMALL</h1>
+        <div class="topbar-actions">
+          <a href="index.html" class="icon-btn" title="Home">
+            <ion-icon name="home-outline"></ion-icon>
+          </a>
+          <a href="Member.html" class="icon-btn" title="Member">
+            <ion-icon name="person-outline"></ion-icon>
+          </a>
+        </div>
       </div>
 
-      <!-- ========================= Main ==================== -->
-      <div class="main">
-        <!-- Topbar Oranye & Putih Khas Guardian -->
-        <div class="topbar">
-          <div class="toggle">
-            <ion-icon name="menu-outline"></ion-icon>
+      <div class="container my-4">
+        <form id="searchForm">
+          <div class="form-group text-center">
+            <button id="calculate" type="button" class="best-btn">
+              BEST SELLER !
+            </button>
           </div>
-          <h1 class="brand-title">Personal Care</h1>
-          <div class="topbar-actions">
-            <a href="index.html" class="icon-btn" title="Home">
-              <ion-icon name="home-outline"></ion-icon>
-            </a>
-            <a href="Member.html" class="icon-btn" title="Member">
-              <ion-icon name="person-outline"></ion-icon>
-            </a>
+        </form>
+
+        <!-- Grid Produk -->
+        <div class="container-central mt-4">
+          <!-- Produk 1 -->
+          <div 
+            class="container-content" 
+            onclick="openPopup(this)"
+            data-title="Mannings Guardian Goat's Milk Shower Cream"
+            data-badge="BEST SELLER"
+            data-img="assets/img/Mannings GoatsMilk.webp"
+            data-price-new="EXCLUSIVE AT GUARDIAN"
+            data-desc="Sabun mandi cair yang diformulasikan khusus dengan kandungan ekstrak susu kambing alami dan gliserin untuk merawat kelembapan kulit. Memiliki pH yang seimbang untuk membersihkan kulit dengan lembut tanpa merusak lapisan pelindung kelembapan alami (moisture barrier)."
+            data-cara="Busa sabun secukupnya pada spons mandi atau telapak tangan. Usapkan lembut ke seluruh tubuh yang telah dibasahi, lalu bilas hingga bersih."
+            data-komposisi="Diformulasikan secara khusus dengan susu kambing (Goat Milk) alami dan gliserin untuk menutrisi kulit."
+          >
+            <div class="img-box">
+              <img src="assets/img/Mannings GoatsMilk.webp" alt="Mannings Guardian Goat's Milk Shower Cream" />
+            </div>
+            <h2 class="product-title">Mannings Guardian Goat's Milk SC</h2>
+            <div class="price-container">
+              <span class="price-old">106.000</span>
+              <span class="price-new">Rp74.000</span>
+            </div>
+            <div class="member-bar">
+              <span class="member-badge">MEMBER</span>
+              <span class="member-price">Rp42.000</span>
+            </div>
+          </div>
+
+          <!-- Produk 2 -->
+          <div 
+            class="container-content" 
+            onclick="openPopup(this)"
+            data-title="Mannings Guardian Almond Milk Shower Cream"
+            data-badge="BEST SELLER"
+            data-img="assets/img/almond.webp"
+            data-price-new="EXCLUSIVE AT GUARDIAN"
+            data-desc="Krim mandi ukuran 1 liter yang diformulasikan khusus dengan kandungan susu almond alami dan gliserin untuk melembapkan kulit. Diperkaya dengan Hydra-Active blend."
+            data-cara="Busa sabun secukupnya pada spons mandi atau telapak tangan, usap dan bilas."
+            data-komposisi="Natural almond milk (susu almond) dan glycerin (gliserin)."
+          >
+            <div class="img-box">
+              <img src="assets/img/almond.webp" alt="Mannings Guardian Almond Milk Shower Cream" />
+            </div>
+            <h2 class="product-title">Mannings Guardian Almond Milk SC</h2>
+            <div class="price-container">
+              <span class="price-old">106.000</span>
+              <span class="price-new">Rp74.000</span>
+            </div>
+            <div class="member-bar">
+              <span class="member-badge">MEMBER</span>
+              <span class="member-price">Rp42.000</span>
+            </div>
+          </div>
+
+          <!-- Produk 3 -->
+          <div 
+            class="container-content" 
+            onclick="openPopup(this)"
+            data-title="Mannings Guardian Rice Milk Shower Cream"
+            data-badge="BEST SELLER"
+            data-img="assets/img/rice milk.webp"
+            data-price-new="EXCLUSIVE AT GUARDIAN"
+            data-desc="Krim mandi cair yang diformulasikan khusus dengan kandungan ekstrak rice milk (susu beras) alami dan gliserin dengan formulasi soap-free."
+            data-cara="Gunakan secara teratur saat mandi."
+            data-komposisi="Diperkaya dengan Rice Milk alami dan gliserin."
+          >
+            <div class="img-box">
+              <img src="assets/img/rice milk.webp" alt="Mannings Guardian Rice Milk Shower Cream" />
+            </div>
+            <h2 class="product-title">Mannings Guardian Rice Milk SC</h2>
+            <div class="price-container">
+              <span class="price-old">106.000</span>
+              <span class="price-new">Rp45.000</span>
+            </div>
+            <div class="member-bar">
+              <span class="member-badge">MEMBER</span>
+              <span class="member-price">Rp42.000</span>
+            </div>
+          </div>
+
+          <!-- Produk 4 -->
+          <div 
+            class="container-content" 
+            onclick="openPopup(this)"
+            data-title="Mannings Guardian Rose Moisturising Shower Cream"
+            data-badge="BEST SELLER"
+            data-img="assets/img/Mannings Cherryblossom.webp"
+            data-price-new="EXCLUSIVE AT GUARDIAN"
+            data-desc="Krim mandi yang diformulasikan khusus dengan ekstrak mawar (rose extract) dan gliserin untuk melembapkan dan menutrisi kulit."
+            data-cara="Usapkan pada kulit basah lalu bilas."
+            data-komposisi="Rosa Centifolia Flower Extract (Ekstrak Bunga Mawar) & Glycerin."
+          >
+            <div class="img-box">
+              <img src="assets/img/Mannings Cherryblossom.webp" alt="Mannings Guardian Rose Moisturising Shower Cream" />
+            </div>
+            <h2 class="product-title">Mannings Guardian Rose Moisturising SC</h2>
+            <div class="price-container">
+              <span class="price-old">106.000</span>
+              <span class="price-new">Rp45.000</span>
+            </div>
+            <div class="member-bar">
+              <span class="member-badge">MEMBER</span>
+              <span class="member-price">Rp42.000</span>
+            </div>
           </div>
         </div>
-
-       <div class="container my-4">
-  <form id="searchForm">
-    <div class="form-group text-center">
-      <button id="calculate" type="button" class="best-btn">
-        BEST SELLER !
-      </button>
-    </div>
-  </form>
-
-  <!-- Grid Produk -->
-  <div class="container-central mt-4">
-    <!-- Produk 2: Body Wash Premium -->
-    <div 
-  class="container-content" 
-  onclick="openPopup(this)"
-  data-title="Mannings Guardian Goat's Milk Shower Cream"
-  data-badge="BEST SELLER"
-  data-img="assets/img/Mannings GoatsMilk.webp"
-  data-price-new="EXCLUSIVE AT GUARDIAN"
-  data-desc=" Sabun mandi cair yang diformulasikan khusus dengan kandungan ekstrak susu kambing alami dan gliserin untuk merawat kelembapan kulit. Memiliki pH yang seimbang untuk membersihkan kulit dengan lembut tanpa merusak lapisan pelindung
-  kelembapan alami (moisture barrier). Kandungan Susu Kambing kaya akan antioksidan dari goat's milk yang membantu menjaga kesehatan kulit, menutrisi, serta membuatnya tampak lebih cerah."
-  data-cara="Busa sabun secukupnya pada spons mandi atau telapak tangan. Usapkan lembut ke seluruh tubuh yang telah dibasahi, lalu bilas hingga bersih."
-  data-komposisi=" Diformulasikan secara khusus dengan susu kambing (Goat Milk) alami dan gliserin untuk menutrisi kulit.  "
->
-  <div class="img-box">
-    <img src="assets/img/Mannings GoatsMilk.webp" alt="Mannings Guardian Goat's Milk Shower Cream" />
-  </div>
-  
-  <h2 class="product-title">Mannings Guardian Goat's Milk SC</h2>
-  
-  <div class="price-container">
-    <span class="price-old">106.000</span>
-    <span class="price-new">Rp74.000</span>
-  </div>
-
-  <!-- Bar Harga Member -->
-  <div class="member-bar">
-    <span class="member-badge">MEMBER</span>
-    <span class="member-price">Rp42.000</span>
-  </div>
-</div>
-
-    <!-- Produk 2: Body Wash Premium -->
-    <div 
-  class="container-content" 
-  onclick="openPopup(this)"
-  data-title="Mannings Guardian Almond Milk Shower Cream"
-  data-badge="BEST SELLER"
-  data-img="assets/img/almond.webp"
-  data-price-new="EXCLUSIVE AT GUARDIAN"
-  data-desc="Krim mandi ukuran 1 liter yang diformulasikan khusus dengan kandungan susu almond alami dan gliserin untuk melembapkan kulit. Memiliki formula lembut yang aman dan tidak merusak skin barrier atau lapisan pelindung kulit. Diperkaya dengan Hydra-Active blend dan susu almond yang membantu menjaga kelembapan alami kulit tanpa membuatnya terasa kering. Menghasilkan busa lembut dengan keharuman almond yang manis, powdery, dan menenangkan. "
-  data-komposisi="Natural almond milk (susu almond) dan glycerin (gliserin) untuk menjadikan kulit terasa lebih lembut, kenyal, dan terawat. "
->
-  <div class="img-box">
-    <img src="assets/img/almond.webp" alt="Mannings Guardian Almond Milk Shower Cream" />
-  </div>
-  
-  <h2 class="product-title">Mannings Guardian Almond Milk SC</h2>
-  
-  <div class="price-container">
-    <span class="price-old">106.000</span>
-    <span class="price-new">Rp74.000</span>
-  </div>
-
-  <!-- Bar Harga Member -->
-  <div class="member-bar">
-    <span class="member-badge">MEMBER</span>
-    <span class="member-price">Rp42.000</span>
-  </div>
-</div>
-
- <!-- Produk 2: Body Wash Premium -->
-    <div 
-  class="container-content" 
-  onclick="openPopup(this)"
-  data-title="Mannings Guardian Rice Milk Shower Cream"
-  data-badge="BEST SELLER"
-  data-img="assets/img/rice milk.webp"
-  data-price-new="EXCLUSIVE AT GUARDIAN"
-  data-desc=" Krim mandi cair yang diformulasikan khusus dengan kandungan ekstrak rice milk (susu beras) alami dan gliserin untuk membersihkan serta merawat kulit. Sabun Rice Milk Guardian memiliki formulasi soap-free (bebas sabun) sehingga sangat lembut di kulit dan tidak merusak lapisan pelindung kelembapan alami kulit. Diperkaya dengan sifat antioksidan dari rice milk yang membantu menjaga kesehatan kulit secara menyeluruh."
-  data-cara="Busa sabun secukupnya pada spons mandi atau telapak tangan. Usapkan lembut ke seluruh tubuh yang telah dibasahi, lalu bilas hingga bersih."
-  data-komposisi="Diperkaya dengan Rice Milk alami dan gliserin untuk menjaga kelembapan kulit.   "
->
-  <div class="img-box">
-    <img src="assets/img/rice milk.webp" alt="Mannings Guardian Rice Milk Shower Cream" />
-  </div>
-  
-  <h2 class="product-title">Mannings Guardian Rice Milk SC</h2>
-  
-  <div class="price-container">
-    <span class="price-old">106.000</span>
-    <span class="price-new">Rp45.000</span>
-  </div>
-
-  <!-- Bar Harga Member -->
-  <div class="member-bar">
-    <span class="member-badge">MEMBER</span>
-    <span class="member-price">Rp42.000</span>
-  </div>
-</div>
-
- <!-- Produk 2: Body Wash Premium -->
-    <div 
-  class="container-content" 
-  onclick="openPopup(this)"
-  data-title="Mannings Guardian Rose Moisturising Shower Cream"
-  data-badge="BEST SELLER"
-  data-img="assets/img/Mannings Cherryblossom.webp"
-  data-price-new="EXCLUSIVE AT GUARDIAN"
-  data-desc="Krim mandi yang diformulasikan khusus dengan ekstrak mawar (rose extract) dan gliserin untuk melembapkan, menutrisi, serta menjadikan kulit terasa lembut, halus, dan kenyal. Memiliki formula bebas sabun (soap-free) sehingga tidak membuat kulit terasa kering. "
-  data-cara="Busa sabun secukupnya pada spons mandi atau telapak tangan. Usapkan lembut ke seluruh tubuh yang telah dibasahi, lalu bilas hingga bersih."
-  data-komposisi="Produk ini mengandung bahan-bahan seperti Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Rosa Centifolia Flower Extract (Ekstrak Bunga Mawar)  "
->
-  <div class="img-box">
-    <img src="assets/img/Mannings Cherryblossom.webp" alt="Mannings Guardian Rose Moisturising Shower Cream" />
-  </div>
-  
-  <h2 class="product-title">Mannings Guardian Rose Moisturising SC</h2>
-  
-  <div class="price-container">
-    <span class="price-old">106.000</span>
-    <span class="price-new">Rp45.000</span>
-  </div>
-
-  <!-- Bar Harga Member -->
-  <div class="member-bar">
-    <span class="member-badge">MEMBER</span>
-    <span class="member-price">Rp42.000</span>
-  </div>
-</div>
-
-<!-- =======================================
-     MODAL POP-UP PRODUK PRESISI (DINAMIS)
-======================================= -->
-<dialog id="productPopup" class="popup">
-  <div class="popup-header">
-    <div class="popup-close-icon" onclick="closePopup()">
-      <ion-icon name="close-outline"></ion-icon>
-    </div>
-    <span id="popBadge" class="popup-badge">Best Seller</span>
-    <div class="popup-img-wrapper">
-      <img id="popImg" src="" alt="Detail Produk" />
-    </div>
-  </div>
-
-  <div class="popup-body">
-    <div id="popTitle" class="popup-title">Nama Produk</div>
-    <div class="price-container justify-content-center mb-3">
-      <span id="popPriceOld" class="price-old"></span>
-      <span id="popPriceNew" class="price-new"></span>
+      </div>
     </div>
 
-    <!-- Tab Interaktif -->
-    <div class="popup-tabs">
-      <button class="tab-btn active" onclick="switchTab('deskripsi', this)">Deskripsi</button>
-      <button class="tab-btn" onclick="switchTab('komposisi', this)">Kandungan Utama </button>
-    </div>
+    <!-- =======================================
+         MODAL POP-UP PRODUK PRESISI (DINAMIS)
+    ======================================= -->
+    <dialog id="productPopup" class="popup">
+      <div class="popup-header">
+        <div class="popup-close-icon" onclick="closePopup()">
+          <ion-icon name="close-outline"></ion-icon>
+        </div>
+        <span id="popBadge" class="popup-badge">Best Seller</span>
+        <div class="popup-img-wrapper">
+          <img id="popImg" src="" alt="Detail Produk" />
+        </div>
+      </div>
 
-    <!-- Konten Tab Dinamis -->
-    <div id="deskripsi" class="tab-content active"></div>
-    <div id="cara" class="tab-content"></div>
-    <div id="komposisi" class="tab-content"></div>
+      <div class="popup-body">
+        <div id="popTitle" class="popup-title">Nama Produk</div>
+        <div class="price-container justify-content-center mb-3">
+          <span id="popPriceOld" class="price-old"></span>
+          <span id="popPriceNew" class="price-new"></span>
+        </div>
 
-    <!-- Tombol Aksi -->
-    <div class="popup-actions">
-      <button class="btn-close-popup" type="button" onclick="closePopup()">Tutup</button> 
-      <button class="btn-add-cart" type="button" onclick="closePopup()">
-        <ion-icon name="thumbs-up"></ion-icon>
-        RECOMENDED
-      </button>
-    </div>
-  </div>
-</dialog>
+        <!-- Tab Interaktif -->
+        <div class="popup-tabs">
+          <button class="tab-btn active" onclick="switchTab('deskripsi', this)">Deskripsi</button>
+          <button class="tab-btn" onclick="switchTab('komposisi', this)">Kandungan Utama</button>
+        </div>
 
-<!-- =========== Scripts ========= -->
-<script src="assets/js/main.js"></script>
-<script>
-  const popup = document.getElementById('productPopup');
+        <!-- Konten Tab Dinamis -->
+        <div id="deskripsi" class="tab-content active"></div>
+        <div id="komposisi" class="tab-content"></div>
 
-  // Fungsi Membuka Pop-up & Mengisi Data Presisi dari Kartu yang Diklik
-  function openPopup(element) {
-    if (!element) return;
+        <!-- Tombol Aksi -->
+        <div class="popup-actions">
+          <button class="btn-close-popup" type="button" onclick="closePopup()">Tutup</button> 
+          <button class="btn-add-cart" type="button" onclick="closePopup()">
+            <ion-icon name="thumbs-up"></ion-icon>
+            RECOMENDED
+          </button>
+        </div>
+      </div>
+    </dialog>
 
-    // Ambil data dari atribut kartu
-    const title = element.getAttribute('data-title') || '';
-    const badge = element.getAttribute('data-badge') || 'Produk';
-    const img = element.getAttribute('data-img') || '';
-    const priceOld = element.getAttribute('data-price-old') || '';
-    const priceNew = element.getAttribute('data-price-new') || '';
-    const desc = element.getAttribute('data-desc') || '-';
-    const cara = element.getAttribute('data-cara') || '-';
-    const komposisi = element.getAttribute('data-komposisi') || '-';
+    <!-- =========== Scripts ========= -->
+    <script>
+      // Toggle Sidebar & Main Content
+      const toggleBtn = document.getElementById("menuToggle");
+      const navigation = document.querySelector(".navigation");
+      const mainContent = document.querySelector(".main");
 
-    // Masukkan data ke elemen Pop-up
-    document.getElementById('popTitle').innerText = title;
-    document.getElementById('popBadge').innerText = badge;
-    document.getElementById('popImg').src = img;
-    document.getElementById('popPriceOld').innerText = priceOld;
-    document.getElementById('popPriceNew').innerText = priceNew;
-    document.getElementById('deskripsi').innerText = desc;
-    document.getElementById('cara').innerText = cara;
-    document.getElementById('komposisi').innerText = komposisi;
+      if (toggleBtn && navigation && mainContent) {
+        toggleBtn.onclick = function () {
+          navigation.classList.toggle("active-sidebar");
+          mainContent.classList.toggle("active-main");
+        };
+      }
 
-    // Reset tab aktif kembali ke 'Deskripsi' saat pop-up dibuka
-    const firstTabBtn = document.querySelector('.popup-tabs .tab-btn');
-    if (firstTabBtn) switchTab('deskripsi', firstTabBtn);
+      // Active Link State Management
+      const list = document.querySelectorAll(".navigation li");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
 
-    // Tampilkan Modal
-    popup.showModal();
-  }
+      // Popup Handling
+      const popup = document.getElementById('productPopup');
 
-  function closePopup() {
-    popup.close();
-  }
+      function openPopup(element) {
+        if (!element) return;
 
-  function switchTab(tabId, btn) {
-    document.querySelectorAll('.tab-content').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.tab-btn').forEach(b => {
-      b.classList.remove('active');
-    });
+        const title = element.getAttribute('data-title') || '';
+        const badge = element.getAttribute('data-badge') || 'Produk';
+        const img = element.getAttribute('data-img') || '';
+        const priceOld = element.getAttribute('data-price-old') || '';
+        const priceNew = element.getAttribute('data-price-new') || '';
+        const desc = element.getAttribute('data-desc') || '-';
+        const komposisi = element.getAttribute('data-komposisi') || '-';
 
-    const activeContent = document.getElementById(tabId);
-    if (activeContent) activeContent.classList.add('active');
-    if (btn) btn.classList.add('active');
-  }
+        document.getElementById('popTitle').innerText = title;
+        document.getElementById('popBadge').innerText = badge;
+        document.getElementById('popImg').src = img;
+        document.getElementById('popPriceOld').innerText = priceOld;
+        document.getElementById('popPriceNew').innerText = priceNew;
+        document.getElementById('deskripsi').innerText = desc;
+        document.getElementById('komposisi').innerText = komposisi;
 
-  // Menutup pop-up saat mengklik area luar (backdrop)
-  popup.addEventListener('click', (e) => {
-    const dialogBounds = popup.getBoundingClientRect();
-    if (
-      e.clientX < dialogBounds.left ||
-      e.clientX > dialogBounds.right ||
-      e.clientY < dialogBounds.top ||
-      e.clientY > dialogBounds.bottom
-    ) {
-      popup.close();
-    }
-  });
-</script>
+        const firstTabBtn = document.querySelector('.popup-tabs .tab-btn');
+        if (firstTabBtn) switchTab('deskripsi', firstTabBtn);
 
+        popup.showModal();
+      }
 
+      function closePopup() {
+        popup.close();
+      }
 
-    <script src="assets/js/main.js"></script>
-    <script type="module" src="script.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+      function switchTab(tabId, btn) {
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('active');
+        });
+
+        const activeContent = document.getElementById(tabId);
+        if (activeContent) activeContent.classList.add('active');
+        if (btn) btn.classList.add('active');
+      }
+
+      popup.addEventListener('click', (e) => {
+        const dialogBounds = popup.getBoundingClientRect();
+        if (
+          e.clientX < dialogBounds.left ||
+          e.clientX > dialogBounds.right ||
+          e.clientY < dialogBounds.top ||
+          e.clientY > dialogBounds.bottom
+        ) {
+          popup.close();
+        }
+      });
+    </script>
   </body>
 </html>

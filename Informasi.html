@@ -4,42 +4,162 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GUARDIAN CITIMALL - Information</title>
+    <title>GUARDIAN CITIMALL - Information & Services</title>
     <link rel="icon" type="image/x-icon" href="assets/img/LOGO1.webp" />
+
+    <!-- Google Fonts & Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        background-color: #f8f9fa;
-        color: #333333;
+      * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
 
-      /* Background utama dengan sentuhan gradient oranye-putih */
-      .main {
+      body {
+        margin: 0;
+        font-family: 'Poppins', Arial, sans-serif;
+        background: linear-gradient(135deg, #fff5f0 0%, #ffefe6 50%, #ffd8c2 100%);
+        background-attachment: fixed;
+        color: #333333;
         min-height: 100vh;
-        padding: 20px 40px 40px;
-        background: linear-gradient(135deg, #fff5f0 0%, #ffefe6 100%);
+        overflow-x: hidden;
       }
 
-      /* Topbar Oranye & Putih Modern */
+      /* =========================================
+         SIDEBAR NAVIGATION & TOGGLE (RESPONSIVE)
+      ========================================= */
+      .navigation {
+        position: fixed;
+        width: 280px;
+        height: 100%;
+        background: #e07b30;
+        transition: 0.5s ease;
+        overflow: hidden;
+        z-index: 100;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Kondisi Sidebar saat ditutup via Toggle */
+      .navigation.active-sidebar {
+        width: 80px;
+      }
+
+      .navigation ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-left: 12px;
+        margin-top: 20px;
+        list-style: none;
+      }
+
+      .navigation ul li {
+        position: relative;
+        width: 100%;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        margin-bottom: 5px;
+      }
+
+      /* Active & Hover Menu Style */
+      .navigation ul li.hovered,
+      .navigation ul li.active {
+        background: #ffffff;
+      }
+
+      .navigation ul li a {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+        padding: 12px 0;
+      }
+
+      .navigation ul li.hovered a,
+      .navigation ul li.active a {
+        color: #e07b30;
+      }
+
+      .navigation ul li a .icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 60px;
+        height: 50px;
+        font-size: 1.6rem;
+      }
+
+      .navigation ul li a .title {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        height: 50px;
+        line-height: 50px;
+        text-align: start;
+        white-space: nowrap;
+        letter-spacing: 0.5px;
+        font-size: 0.95rem;
+        transition: 0.3s;
+      }
+
+      /* Efek Lekukan Kurva Atas & Bawah (Curved Active Tab) */
+      .navigation ul li.hovered a::before,
+      .navigation ul li.active a::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 35px 35px 0 10px #ffffff;
+        pointer-events: none;
+      }
+
+      .navigation ul li.hovered a::after,
+      .navigation ul li.active a::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 35px -35px 0 10px #ffffff;
+        pointer-events: none;
+      }
+
+      /* =========================================
+         MAIN CONTENT AREA
+      ========================================= */
+      .main {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+        min-height: 100vh;
+        padding: 20px 30px 40px;
+        transition: 0.5s ease;
+      }
+
+      /* Penyesuaian Main saat Sidebar Dilipat */
+      .main.active-main {
+        margin-left: 80px;
+        width: calc(100% - 80px);
+      }
+
       .topbar {
         width: 100%;
         height: 65px;
@@ -49,43 +169,46 @@
         padding: 0 25px;
         background: #ffffff;
         border-radius: 16px;
-        margin-bottom: 35px;
+        margin-bottom: 25px;
         box-shadow: 0 10px 30px rgba(255, 102, 0, 0.08);
         border: 1px solid rgba(255, 102, 0, 0.15);
       }
 
       .topbar .toggle {
+        font-size: 1.8rem;
+        color: #e07b30;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 40px;
         height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.8rem;
-        color: #ff6600;
-        cursor: pointer;
-        transition: transform 0.2s ease;
+        border-radius: 50%;
+        background: #fff5f0;
+        transition: background 0.3s ease;
       }
 
       .topbar .toggle:hover {
-        transform: scale(1.1);
+        background: #ffe0cc;
       }
 
       .topbar .brand-title {
-        color: #ff6600;
-        font-size: 1.2rem;
+        color: #e07b30;
+        font-size: 1.25rem;
         font-weight: 800;
-        letter-spacing: 1.2px;
+        letter-spacing: 1px;
         text-transform: uppercase;
+        margin: 0;
       }
 
-      .topbar .topbar-actions {
+      .topbar-actions {
         display: flex;
         align-items: center;
         gap: 12px;
       }
 
       .topbar .icon-btn {
-        color: #ff6600;
+        color: #e07b30;
         font-size: 1.3rem;
         display: flex;
         align-items: center;
@@ -100,115 +223,110 @@
       }
 
       .topbar .icon-btn:hover {
-        background: #ff6600;
+        background: #e07b30;
         color: #ffffff;
-        transform: translateY(-2px);
       }
 
-      /* Premium Card Section - Nuansa Oranye Putih */
+      /* =========================================
+         INFO SECTION & CONTACT CARDS
+      ========================================= */
       .info-section {
-        position: relative;
-        padding: 45px;
-        border-radius: 24px;
         background: #ffffff;
-        border: 1px solid rgba(255, 102, 0, 0.15);
-        color: #333333;
-        box-shadow: 0 20px 40px rgba(255, 102, 0, 0.08);
-        overflow: hidden;
-      }
-
-      /* Efek Lingkaran Glow Oranye Halus */
-      .info-section::before {
-        content: "";
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(
-          circle,
-          rgba(255, 102, 0, 0.12),
-          transparent 70%
-        );
-        top: -60px;
-        right: -60px;
-        filter: blur(50px);
-        z-index: 0;
-        pointer-events: none;
-      }
-
-      .info-section * {
-        position: relative;
-        z-index: 1;
+        border: 1px solid #ffe5d9;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 15px 35px rgba(255, 102, 0, 0.08);
       }
 
       .info-section h3 {
-        font-size: 1.8rem;
+        color: #e07b30;
+        font-size: 1.6rem;
         font-weight: 800;
-        color: #ff6600;
-        letter-spacing: 0.8px;
         margin-bottom: 12px;
         text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
-      .info-section p.lead-text {
-        font-size: 1.05rem;
-        color: #555555;
+      .lead-text {
+        color: #666666;
+        font-size: 0.95rem;
         margin-bottom: 30px;
+        line-height: 1.6;
       }
 
-      /* Card Kontak Interaktif */
+      .contact-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+
       .contact-card {
         display: flex;
         align-items: center;
-        background: #fffafa;
-        border: 1.5px solid #ffe5d9;
-        border-radius: 16px;
-        padding: 18px 24px;
-        margin-bottom: 18px;
-        text-decoration: none !important;
-        color: #333333;
+        gap: 16px;
+        background: #fff5f0;
+        border: 1px solid #ffe0cc;
+        padding: 18px 22px;
+        border-radius: 14px;
+        text-decoration: none;
         transition: all 0.3s ease;
       }
 
       .contact-card:hover {
-        background: #ff6600;
-        border-color: #ff6600;
+        background: #e07b30;
+        border-color: #e07b30;
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(255, 102, 0, 0.25);
-      }
-
-      .contact-card:hover .contact-icon,
-      .contact-card:hover .contact-info .label,
-      .contact-card:hover .contact-info .value {
-        color: #ffffff;
+        box-shadow: 0 10px 25px rgba(224, 123, 48, 0.25);
+        text-decoration: none;
       }
 
       .contact-icon {
-        font-size: 2rem;
-        margin-right: 20px;
-        color: #ff6600;
+        width: 50px;
+        height: 50px;
+        background: #ffffff;
+        color: #e07b30;
+        border-radius: 12px;
         display: flex;
         align-items: center;
-        transition: color 0.3s ease;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 10px rgba(255, 102, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover .whatsapp-icon {
+        color: #25d366;
+      }
+
+      .contact-card:hover .contact-icon {
+        color: #e07b30;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
       }
 
       .contact-info .label {
         font-size: 0.8rem;
         font-weight: 600;
-        text-transform: uppercase;
         color: #888888;
-        display: block;
-        letter-spacing: 0.5px;
+        text-transform: uppercase;
         transition: color 0.3s ease;
       }
 
       .contact-info .value {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         font-weight: 700;
         color: #222222;
         transition: color 0.3s ease;
       }
 
-      /* Responsif Mobile */
+      .contact-card:hover .label,
+      .contact-card:hover .value {
+        color: #ffffff;
+      }
+
       @media (max-width: 768px) {
         .main {
           padding: 15px;
@@ -216,155 +334,143 @@
         .topbar {
           height: 55px;
           padding: 0 15px;
+          margin-bottom: 20px;
         }
         .topbar .brand-title {
           font-size: 0.95rem;
-        }
-        .info-section {
-          padding: 30px 20px;
-        }
-        .info-section h3 {
-          font-size: 1.4rem;
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- =============== Navigation ================ -->
-    <div>
-      <div class="navigation">
-        <ul>
-          <li>
-            <a href="index.html">
-              <span class="icon">
-                <ion-icon name="home-outline"></ion-icon>
-              </span>
-              <span class="title">HOME</span>
-            </a>
-          </li>
-          <li>
-            <a href="Rute.html">
-              <span class="icon">
-                <ion-icon name="trophy-outline"></ion-icon>
-              </span>
-              <span class="title">TOP BRANDS</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="bulb-outline"></ion-icon>
-              </span>
-              <span class="title">INFORMATION</span>
-            </a>
-          </li>
-          <li>
-            <a href="Daftarlist.html">
-              <span class="icon">
-                <ion-icon name="trending-up-outline"></ion-icon>
-              </span>
-              <span class="title">TRENDING PRODUCTS</span>
-            </a>
-          </li>
-          <li>
-            <a href="Member.html">
-              <span class="icon">
-                <ion-icon name="people-outline"></ion-icon>
-              </span>
-              <span class="title">GUARDIAN MEMBER</span>
-            </a>
-          </li>
-        </ul>
+    <!-- =============== Sidebar Navigation =============== -->
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="index.html">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">HOME</span>
+          </a>
+        </li>
+        <li>
+          <a href="Rute.html">
+            <span class="icon"><ion-icon name="trophy-outline"></ion-icon></span>
+            <span class="title">TOP BRANDS</span>
+          </a>
+        </li>
+        <!-- Menu Aktif Information -->
+        <li class="active">
+          <a href="Informasi.html">
+            <span class="icon"><ion-icon name="bulb-outline"></ion-icon></span>
+            <span class="title">INFORMATION</span>
+          </a>
+        </li>
+        <li>
+          <a href="Daftarlist.html">
+            <span class="icon"><ion-icon name="trending-up-outline"></ion-icon></span>
+            <span class="title">TRENDING PRODUCTS</span>
+          </a>
+        </li>
+        <li>
+          <a href="Member.html">
+            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="title">GUARDIAN MEMBER</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- =============== Main Content Area =============== -->
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle" id="menuToggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <h1 class="brand-title">Guardian Citimall</h1>
+        <div class="topbar-actions">
+          <a href="index.html" class="icon-btn" title="Home"><ion-icon name="home-outline"></ion-icon></a>
+          <a href="Member.html" class="icon-btn" title="Member"><ion-icon name="person-outline"></ion-icon></a>
+        </div>
       </div>
 
-      <!-- ========================= Main ==================== -->
-      <div class="main">
-        
-        <!-- Topbar Oranye & Putih -->
-        <div class="topbar">
-          <div class="toggle">
-            <ion-icon name="menu-outline"></ion-icon>
-          </div>
-          <div class="brand-title">Guardian Citimall</div>
-          <div class="topbar-actions">
-            <a href="index.html" class="icon-btn" title="Home">
-              <ion-icon name="home-outline"></ion-icon>
+      <div class="container-fluid px-0">
+        <div class="info-section">
+          <h3>Informasi & Layanan Toko</h3>
+          <p class="lead-text">
+            Kunjungi store fisik kami, dapatkan konsultasi produk langsung, atau hubungi layanan pelanggan kami melalui saluran resmi di bawah ini:
+          </p>
+
+          <div class="contact-list">
+            <!-- Kartu Alamat Toko -->
+            <a href="https://maps.google.com/?q=Guardian+Citimall" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <span class="label">Alamat Store</span>
+                <span class="value">Citimall, Ground Floor Unit GF-12</span>
+              </div>
             </a>
-            <a href="Member.html" class="icon-btn" title="Member">
-              <ion-icon name="person-outline"></ion-icon>
+
+            <!-- Link WhatsApp Toko -->
+            <a href="https://wa.me/6281910174550?text=Halo%20Guardian%20Citimall,%20saya%20ingin%20menanyakan%20informasi%20produk%20dan%20layanan." target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon whatsapp-icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <span class="label">WhatsApp CS Store</span>
+                <span class="value">+62 819-1017-4550</span>
+              </div>
+            </a>
+
+            <!-- Link Instagram -->
+            <a href="https://instagram.com/guardian_id" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <span class="label">Instagram Resmi</span>
+                <span class="value">@guardian_id</span>
+              </div>
+            </a>
+
+            <!-- Link Website -->
+            <a href="https://www.guardianindonesia.co.id" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon">
+                <ion-icon name="globe-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <span class="label">Official Website</span>
+                <span class="value">www.guardianindonesia.co.id</span>
+              </div>
             </a>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="container mt-4">
-          <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-              
-           <!-- =======================================
-     CONTAINER INFORMASI TOKO & WHATSAPP
-======================================= -->
-<div class="info-section mt-5">
-  <h3>Informasi & Layanan Toko</h3>
-  <p class="lead-text">
-    Kunjungi store fisik kami atau hubungi layanan pelanggan kami via WhatsApp untuk pemesanan cepat dan konsultasi produk:
-  </p>
+    <!-- =============== JavaScript Logic =============== -->
+    <script>
+      // Toggle Sidebar & Main Content
+      const toggleBtn = document.getElementById("menuToggle");
+      const navigation = document.querySelector(".navigation");
+      const mainContent = document.querySelector(".main");
 
-  <div class="contact-list">
-    <!-- Kartu Alamat Toko (Google Maps) -->
-    <a href="https://maps.app.goo.gl/qLk9kZ1g3hUhj6wJ7" target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-icon">
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="contact-info">
-        <span class="label">Alamat Store</span>
-        <span class="value">Citimall Cimanggis, Ground Floor Unit G-0300, Jl Raya Bogor, Depok, 16452, Jawa Barat, ID</span>
-      </div>
-    </a>
+      if (toggleBtn && navigation && mainContent) {
+        toggleBtn.onclick = function () {
+          navigation.classList.toggle("active-sidebar");
+          mainContent.classList.toggle("active-main");
+        };
+      }
 
-    <!-- Link WhatsApp Toko -->
-    <a href="https://wa.me/6281910174550?text=Halo%20Guardian%20Citimall,%20saya%20ingin%20menanyakan%20informasi%20produk%20dan%20layanan." target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-icon whatsapp-icon">
-        <ion-icon name="logo-whatsapp"></ion-icon>
-      </div>
-      <div class="contact-info">
-        <span class="label">WhatsApp CS Store</span>
-        <span class="value">+62 81910174550</span>
-      </div>
-    </a>
-
-    <!-- Link Instagram -->
-    <a href="https://instagram.com/guardian_id" target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-icon">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </div>
-      <div class="contact-info">
-        <span class="label">Instagram Resmi</span>
-        <span class="value">@guardian_id</span>
-      </div>
-    </a>
-
-    <!-- Link Website -->
-    <a href="https://www.guardianindonesia.co.id" target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-icon">
-        <ion-icon name="globe-outline"></ion-icon>
-      </div>
-      <div class="contact-info">
-        <span class="label">Official Website</span>
-        <span class="value">www.guardianindonesia.co.id</span>
-      </div>
-    </a>
-  </div>
-</div>
-    <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+      // Active Link State Management
+      const list = document.querySelectorAll(".navigation li");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
   </body>
 </html>
